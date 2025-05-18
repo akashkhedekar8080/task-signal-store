@@ -6,7 +6,7 @@ export const taskMethods = (store: any) => ({
   addTask(task: Omit<Task, "id" | "createdAt">) {
     const newTask = {
       id: crypto.randomUUID(),
-      createdAt: Date.now().toLocaleString(),
+      createdAt: new Date().toISOString(),
       ...task,
     };
     patchState(store, { tasks: [...store.tasks(), newTask] });
