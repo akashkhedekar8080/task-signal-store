@@ -84,7 +84,7 @@ export class TaskTableComponent {
     const dialogRef = this.dialog.open(TaskDialogComponent, {
       width: "500px",
       maxWidth: "95vw",
-      data: { task: task },
+      data: { task },
     });
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);

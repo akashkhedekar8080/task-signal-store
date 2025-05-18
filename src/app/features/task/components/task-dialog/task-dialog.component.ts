@@ -65,11 +65,13 @@ export class TaskDialogComponent {
         taskData.id = this.data.task!.id;
         taskData.createdAt = this.data.task!.createdAt;
       }
+      this.taskForm.reset();
       this.dialogRef.close(taskData);
     }
   }
 
   onCancel(): void {
+    this.taskForm.reset();
     this.dialogRef.close();
   }
 }

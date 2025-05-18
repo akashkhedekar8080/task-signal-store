@@ -68,3 +68,5 @@ I chose NgRx Signals Store over traditional NgRx for several reasons:
 - **Performance Benefit**: Signal-based reactivity provides more granular updates than zone-based change detection, improving performance for our real-time charts.
 
 This architecture provides a good balance between maintainability and reactivity while leveraging Angular 19's latest features.
+
+## Demo link - https://www.loom.com/share/a2d32ae19b88454fa5521aa06e3a6d88?sid=f69664b6-6110-414f-a8ca-32510d274ad2
