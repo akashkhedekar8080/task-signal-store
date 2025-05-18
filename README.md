@@ -1,8 +1,8 @@
-# Angular 19 In-Memory CRUD App with NgRx Signals Store
+# Angular 19 In-Memory CRUD Task Mangement App with NgRx Signals Store
 
 ## Overview
 
-This is a small Angular 19 application that allows users to perform CRUD operations on in-memory data using NgRx Signals. The app includes real-time charts that update when the store changes.
+This is a small Angular 19 application that allows users to perform full CRUD operations — including adding, editing, and deleting tasks — on in-memory data using NgRx Signals. The app features real-time charts that automatically update when the store changes.
 
 ## Features
 
