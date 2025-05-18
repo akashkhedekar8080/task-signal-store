@@ -1,0 +1,40 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button aria-label="Task Manager menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <span>Task Manager</span>
+  <span class="spacer"></span>
+
+  <nav>
+    <a
+      mat-button
+      routerLink="/tasks"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <mat-icon>list</mat-icon>
+      <span>Tasks</span>
+    </a>
+
+    <a
+      mat-button
+      routerLink="/charts"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <mat-icon>line_axis</mat-icon>
+      <span>Graph</span>
+    </a>
+
+    <a
+      mat-button
+      routerLink="/dashboard"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <mat-icon>dashboard</mat-icon>
+      <span>Dashboard</span>
+    </a>
+  </nav>
+</mat-toolbar>

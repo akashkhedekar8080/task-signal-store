@@ -1,59 +1,70 @@
-# TaskSignalStore
+# Angular 19 In-Memory CRUD App with NgRx Signals Store
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.12.
+## Overview
 
-## Development server
+This is a small Angular 19 application that allows users to perform CRUD operations on in-memory data using NgRx Signals. The app includes real-time charts that update when the store changes.
 
-To start a local development server, run:
+## Features
 
-```bash
-ng serve
-```
+- Add/Edit/Delete Tasks
+- Store all data in NgRx signals store
+- Reactive forms for form handling
+- Live updating distribution by task status pie chart and trend over time task date line chart
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Architecture
 
-## Code scaffolding
+- app
+  - core
+  - constants
+  - store
+    - methods
+      - task.methods.ts
+    - effects
+      - task.effects.ts
+    - computed
+      - task.computed.ts
+    - state
+      - task.state.ts
+    - task.store.ts
+  - task
+  - components
+    - task graph
+    - task dialog
+    - task table
+  - page
+    - task dashboard
+  - layout
+  - header
+  - footer
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## NgRx Signal Usage
 
-```bash
-ng generate component component-name
-```
+- Used signal method to add, update, delete, select task
+- Used computed signals to get task by status for distribution pie chart and task by date for trend over time line chart
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Charts
 
-```bash
-ng generate --help
-```
+- Task Status Distribution (Pie Chart)
+- Tasks trend Over Time (Line Chart)
 
-## Building
+## Design Rationale
 
-To build the project run:
+### Module & Signal Store Organization
 
-```bash
-ng build
-```
+I organized the signal store into a core module to centralize state management and make it accessible throughout the application. This separation allows components to focus on presentation while the store handles data operations and transformations.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### Pattern Selection
 
-## Running unit tests
+I chose NgRx Signals Store over traditional NgRx for several reasons:
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+- **Computed Signals**: These provide reactive, derived state without the boilerplate of classic selectors. For example, our chart data is automatically recalculated whenever tasks change.
+- **SignalEffects**: Used for side effects like logging changes and ensuring UI updates synchronously with state changes.
+- **Simplified Architecture**: The signals approach eliminates the need for actions, reducers, and effects files, resulting in more maintainable code.
 
-```bash
-ng test
-```
+### Trade-offs & Alternatives
 
-## Running end-to-end tests
+- **Alternative Considered**: Traditional NgRx Store with actions/reducers would provide more explicit state transitions but at the cost of additional boilerplate.
+- **Trade-off**: While NgRx Signals Store has less middleware support than classic NgRx, the simplified mental model and reduced code complexity outweighed this limitation for our app's size.
+- **Performance Benefit**: Signal-based reactivity provides more granular updates than zone-based change detection, improving performance for our real-time charts.
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+This architecture provides a good balance between maintainability and reactivity while leveraging Angular 19's latest features.

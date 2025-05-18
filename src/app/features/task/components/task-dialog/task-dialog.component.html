@@ -1,0 +1,52 @@
+<h2 mat-dialog-title>{{ isEditMode ? "Edit Task" : "Add New Task" }}</h2>
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="taskForm" (ngSubmit)="onSave()" class="dialog-form">
+    <mat-form-field appearance="outline">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title" />
+      @if (taskForm.controls['title'].errors?.['required'] &&
+      taskForm.controls['title'].touched) {
+      <mat-error>Title is required</mat-error>
+      } @if (taskForm.controls['title'].errors?.['maxlength']) {
+      <mat-error>Title cannot exceed 100 characters</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description" rows="3"></textarea>
+      @if (taskForm.controls['description'].errors?.['maxlength']) {
+      <mat-error>Description cannot exceed 500 characters</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Status</mat-label>
+      <mat-select formControlName="status">
+        @for (status of statuses; track status) {
+        <mat-option [value]="status">{{ status }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Priority</mat-label>
+      <mat-select formControlName="priority">
+        @for (priority of priorities; track priority) {
+        <mat-option [value]="priority">{{ priority }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button type="button" (click)="onCancel()">Cancel</button>
+  <button
+    mat-flat-button
+    type="button"
+    (click)="onSave()"
+    [disabled]="taskForm.invalid"
+  >
+    {{ isEditMode ? "Update" : "Add" }}
+  </button>
+</mat-dialog-actions>

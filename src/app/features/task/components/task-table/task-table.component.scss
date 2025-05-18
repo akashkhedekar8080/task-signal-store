@@ -1,0 +1,33 @@
+.page {
+  max-width: 100%;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  overflow: scroll;
+  h1 {
+    text-align: center;
+  }
+
+  table {
+    width: 100%;
+    overflow: scroll;
+  }
+
+  .right {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+  }
+
+  @media (min-width: 1024px) {
+    height: 70vh;
+  }
+  @media (max-width: 768px) {
+    height: 70vh;
+  }
+  @media (max-width: 480px) {
+    height: 60vh;
+  }
+}

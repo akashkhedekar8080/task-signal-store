@@ -1,0 +1,26 @@
+.footer {
+  background-color: #3f51b5;
+  color: white;
+  padding: 0.5rem 1rem;
+  margin-top: auto;
+  width: 100%;
+  bottom: 0;
+  position: fixed;
+
+  .footer-content {
+    width: 100%;
+    text-align: center;
+    font-size: 0.9rem;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .footer-content {
+      font-size: 0.8rem;
+      padding: 0.4rem;
+    }
+  }
+}

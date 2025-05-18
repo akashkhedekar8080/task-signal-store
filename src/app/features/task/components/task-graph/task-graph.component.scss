@@ -1,0 +1,26 @@
+.chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  margin: auto;
+  padding: 1rem;
+  box-sizing: border-box;
+  canvas {
+    width: 100% !important;
+    height: auto !important;
+    overflow: scroll;
+  }
+  @media (max-width: 1366px) {
+    width: 100%;
+  }
+  @media (min-width: 1024px) {
+    width: 25%;
+  }
+  @media (max-width: 768px) {
+    width: 50%;
+  }
+  @media (max-width: 480px) {
+    width: 70%;
+  }
+}
